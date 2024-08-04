@@ -41,7 +41,12 @@ const Main = () => {
                             </div>
                             <div className='cards'>
                                 {data.map((item, idx) => (
-                                    <div onClick={() => setInput(item.data)} key={idx} className='card'>
+                                    <div onClick={() => {
+                                        setInput(item.data)
+                                        if (input) {
+                                            onSent()
+                                        }
+                                    }} key={idx} className='card'>
                                         <p>{item.data}</p>
                                         <img src={item.img} alt='' />
                                     </div>
